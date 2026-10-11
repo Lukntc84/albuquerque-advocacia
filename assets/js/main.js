@@ -38,6 +38,18 @@
   };
   updateWhatsApp();
 
+  /* "Conte-nos sobre o seu caso": abre o WhatsApp com nome e área já escritos */
+  const caseWa = $('#case-wa');
+  const updateCase = () => {
+    if (!caseWa) return;
+    const nome = ($('#nome') || {}).value ? $('#nome').value.trim() : '';
+    const area = areaSelect && areaSelect.value && areaSelect.value !== 'Outro / não sei' ? areaSelect.value : '';
+    const msg = 'Olá! ' + (nome ? 'Sou ' + nome + '. ' : '') + 'Gostaria de falar com a Albuquerque Advocacia' + (area ? ' sobre ' + area : '') + '. Meu caso: ';
+    caseWa.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  };
+  updateCase();
+  ['#nome', '#area'].forEach((s) => { const el = $(s); if (el) { el.addEventListener('input', updateCase); el.addEventListener('change', updateCase); } });
+
   /* Botão de voltar ao topo */
   const hero = $('#hero');
   const toTop = $('#totop');
@@ -106,6 +118,18 @@
         areaSelect.value = row.dataset.area;
         setError('area', '');
         updateWhatsApp();
+
+  /* "Conte-nos sobre o seu caso": abre o WhatsApp com nome e área já escritos */
+  const caseWa = $('#case-wa');
+  const updateCase = () => {
+    if (!caseWa) return;
+    const nome = ($('#nome') || {}).value ? $('#nome').value.trim() : '';
+    const area = areaSelect && areaSelect.value && areaSelect.value !== 'Outro / não sei' ? areaSelect.value : '';
+    const msg = 'Olá! ' + (nome ? 'Sou ' + nome + '. ' : '') + 'Gostaria de falar com a Albuquerque Advocacia' + (area ? ' sobre ' + area : '') + '. Meu caso: ';
+    caseWa.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  };
+  updateCase();
+  ['#nome', '#area'].forEach((s) => { const el = $(s); if (el) { el.addEventListener('input', updateCase); el.addEventListener('change', updateCase); } });
       });
     });
     areaList.addEventListener('mouseleave', deactivate);
@@ -241,7 +265,7 @@
   /* Formulário de contato */
   const form = $('#form');
   const success = $('#success');
-  const fields = ['nome', 'tel', 'email', 'area', 'msg', 'lgpd'];
+  const fields = ['nome', 'tel', 'email', 'area', 'lgpd'];
 
   function setError(key, message) {
     const input = $(`#${key}`);
@@ -300,7 +324,6 @@
       if (v('tel').replace(/\D/g, '').length < 10) errors.tel = 'Informe um telefone com DDD, por exemplo (11) 91234-5678.';
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))) errors.email = 'Informe um e-mail válido, por exemplo nome@email.com.';
       if (!v('area')) errors.area = 'Escolha a área mais próxima do seu caso.';
-      if (v('msg').length < 10) errors.msg = 'Conte em poucas linhas o que aconteceu.';
       if (!$('#lgpd').checked) errors.lgpd = 'Precisamos da sua autorização para retornar o contato.';
       return errors;
     };
@@ -325,7 +348,7 @@
       setTimeout(() => {
         const firstName = $('#nome').value.trim().split(/\s+/)[0];
         const phone = tel.value;
-        $('#success-title').textContent = firstName ? `Mensagem recebida, ${firstName}.` : 'Mensagem recebida.';
+        $('#success-title').textContent = firstName ? `Pedido recebido, ${firstName}.` : 'Pedido recebido.';
         $('#success-badge').hidden = !urgente.checked;
         $('#success-body').textContent = urgente.checked
           ? `Sua mensagem entrou como prioridade. Retornamos hoje pelo telefone ${phone}. Se for prisão ou caso criminal, ligue agora para o plantão 24h.`
@@ -342,10 +365,22 @@
       fields.forEach((key) => setError(key, ''));
       urgBox.hidden = true;
       sendBtn.disabled = false;
-      sendLabel.textContent = 'Enviar mensagem';
+      sendLabel.textContent = 'Pedir retorno';
       success.hidden = true;
       form.hidden = false;
       updateWhatsApp();
+
+  /* "Conte-nos sobre o seu caso": abre o WhatsApp com nome e área já escritos */
+  const caseWa = $('#case-wa');
+  const updateCase = () => {
+    if (!caseWa) return;
+    const nome = ($('#nome') || {}).value ? $('#nome').value.trim() : '';
+    const area = areaSelect && areaSelect.value && areaSelect.value !== 'Outro / não sei' ? areaSelect.value : '';
+    const msg = 'Olá! ' + (nome ? 'Sou ' + nome + '. ' : '') + 'Gostaria de falar com a Albuquerque Advocacia' + (area ? ' sobre ' + area : '') + '. Meu caso: ';
+    caseWa.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  };
+  updateCase();
+  ['#nome', '#area'].forEach((s) => { const el = $(s); if (el) { el.addEventListener('input', updateCase); el.addEventListener('change', updateCase); } });
       $('#nome').focus();
     });
   }

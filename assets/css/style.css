@@ -1,10 +1,10 @@
 /* Albuquerque Advocacia · projeto fictício de portfólio · Luccas Santana */
 
 html{scroll-behavior:smooth;scroll-padding-top:96px;scrollbar-color:#a87b3c #f3ede2}
-body{margin:0;background:#0a2219;font-family:'Manrope',system-ui,sans-serif;color:#141414;caret-color:#0f2e22;-webkit-font-smoothing:antialiased}
+body{margin:0;background:#0a1a2f;font-family:'Manrope',system-ui,sans-serif;color:#141414;caret-color:#12284a;-webkit-font-smoothing:antialiased}
 *,*::before,*::after{box-sizing:border-box}
 img,video{max-width:100%}
-::selection{background:#e6c48f;color:#0a2219}
+::selection{background:#e6c48f;color:#0a1a2f}
 a{color:inherit;text-decoration:none}
 input,textarea,select,button{font-family:inherit}
 [hidden]{display:none!important}
@@ -16,10 +16,10 @@ input,textarea,select,button{font-family:inherit}
 .lk-l{text-decoration:underline;text-decoration-color:#c79855;text-decoration-thickness:1px;text-underline-offset:5px;transition:color .2s ease}
 .lk-l:hover{color:#7a5a24}
 .btn-gold{transition:background-color .25s ease,transform .25s ease}
-.btn-gold:hover{background:#d8ad6c;color:#0a2219;transform:translateY(-2px)}
+.btn-gold:hover{background:#d8ad6c;color:#0a1a2f;transform:translateY(-2px)}
 .btn-gold:disabled{opacity:.6;cursor:progress;transform:none}
 .btn-line{color:#ffffff;transition:background-color .25s ease,color .25s ease}
-.btn-line:hover{background:#ffffff;color:#0a2219}
+.btn-line:hover{background:#ffffff;color:#0a1a2f}
 
 .nav-links{display:flex}
 .nav-burger{display:none}
@@ -53,18 +53,18 @@ input,textarea,select,button{font-family:inherit}
 
 /* FAQ */
 @media (min-width:901px){.faq-head{position:sticky;top:120px;align-self:flex-start}}
-.faq-ic{background:#e6dccb;color:#0f2e22;transition:transform .3s ease,background-color .3s ease}
-.faq-btn[aria-expanded="true"] .faq-ic{background:#0f2e22;color:#e6c48f;transform:rotate(45deg)}
+.faq-ic{background:#e6dccb;color:#12284a;transition:transform .3s ease,background-color .3s ease}
+.faq-btn[aria-expanded="true"] .faq-ic{background:#12284a;color:#e6c48f;transform:rotate(45deg)}
 
 /* Formulário */
-.field{background:#ffffff;border:1px solid #84918a;border-radius:14px;padding:16px;font-size:16px;color:#141414;width:100%;transition:border-color .2s ease,box-shadow .2s ease}
-.field:focus{border-color:#0f2e22;box-shadow:0 0 0 3px #a87b3c;outline:none}
+.field{background:#ffffff;border:1px solid #8791a3;border-radius:14px;padding:16px;font-size:16px;color:#141414;width:100%;transition:border-color .2s ease,box-shadow .2s ease}
+.field:focus{border-color:#12284a;box-shadow:0 0 0 3px #a87b3c;outline:none}
 .field[aria-invalid="true"]{border-color:#a3341f}
 
 /* Rodapé */
 .soc{transition:transform .25s ease,background-color .25s ease}
 .soc:hover{transform:translateY(-3px);background:#e6c48f}
-.ft-bg{background:linear-gradient(180deg,rgba(10,34,25,.8),rgba(10,34,25,.9)),url(../img/rodape.jpg) center 55%/cover no-repeat}
+.ft-bg{background:linear-gradient(180deg,rgba(10,26,47,.8),rgba(10,26,47,.9)),url(../img/rodape.jpg) center 55%/cover no-repeat}
 .ft-cta{transition:color .3s ease}
 .ft-cta:hover{color:#e6c48f}
 .ft-cta svg{transition:transform .3s ease}
@@ -80,7 +80,7 @@ input,textarea,select,button{font-family:inherit}
 .bal{position:relative;border-radius:28px;padding:30px 30px 28px;box-shadow:0 14px 34px rgba(0,0,0,.18);display:flex;flex-direction:column;gap:12px}
 .bal::after{content:"";position:absolute;left:40px;bottom:-11px;width:24px;height:24px;background:inherit;transform:rotate(45deg);border-radius:4px}
 .b-light .bal{background:#fbf8f2;color:#4b505a}
-.b-gold .bal{background:#c79855;color:#0a2219}
+.b-gold .bal{background:#c79855;color:#0a1a2f}
 
 /* Animações */
 .vid-zoom{animation:zoom 18s ease-out both}
@@ -96,3 +96,30 @@ input,textarea,select,button{font-family:inherit}
   html{scroll-behavior:auto}
   .hin,.hin-t,.vid-zoom,.pop{animation:none}
 }
+
+/* Equipe */
+.team-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,32px)}
+@media (max-width:1000px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.team-grid{grid-template-columns:1fr}}
+.team-card{display:flex;flex-direction:column}
+.team-card img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.team-card:hover img{transform:translateY(-4px)}
+
+/* Missão, visão e valores */
+.mvv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,32px)}
+@media (max-width:900px){.mvv-grid{grid-template-columns:1fr}}
+.mvv-card{display:flex;flex-direction:column;gap:16px;padding:32px 28px;border-top:2px solid #c79855;background:#f3ede2;border-radius:0 0 22px 22px}
+.mvv-card p{margin:0;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;line-height:1.3;color:#141414}
+.mvv-card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.mvv-card li{font-size:16px;line-height:1.5;color:#2c3542;padding-left:20px;position:relative}
+.mvv-card li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:#c79855}
+.mvv-tag{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#7a5a24}
+
+/* Botão do formulário que abre o WhatsApp */
+.case-wa{display:flex;align-items:center;gap:12px;min-height:56px;padding:14px 18px;border-radius:14px;border:1.5px dashed #c79855;background:#ffffff;color:#12284a;font-weight:700;font-size:15px;transition:background-color .2s ease,border-color .2s ease}
+.case-wa:hover{background:#fbf8f2;border-style:solid}
+.case-wa:focus-visible{outline:3px solid #c79855;outline-offset:3px}
+
+.nav-links a{white-space:nowrap}
+/* Entre 901 e 1100px os links não cabem ao lado da marca: vira o menu de três linhas */
+@media (max-width:1100px) and (min-width:901px){.nav-links{display:none}.nav-burger{display:flex}}
